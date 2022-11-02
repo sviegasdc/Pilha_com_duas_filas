@@ -5,15 +5,20 @@ public class TestPilha_com_filas {
         PilhaF.EnqueueFila1("fila1-1");
         PilhaF.EnqueueFila1("fila1-2");
         PilhaF.EnqueueFila1("fila1-3");
-//        PilhaF.EnqueueFila1("fila2-4");
-//        PilhaF.EnqueueFila1("fila1-5");
-//        PilhaF.EnqueueFila1("fila2-6");
 
-// System.out.println(PilhaF);
-// inserir elementos na pilha 2
         PilhaF.EnqueueFila2("fila2-1");
         PilhaF.EnqueueFila2("fila2-2");
         PilhaF.EnqueueFila2("fila2-3");
+
+        PilhaF.EnqueueFila1("fila2-4");
+        PilhaF.EnqueueFila1("fila1-5");
+        PilhaF.EnqueueFila1("fila2-6");
+
+// System.out.println(PilhaF);
+//// inserir elementos na pilha 2
+//        PilhaF.EnqueueFila2("fila2-1");
+//        PilhaF.EnqueueFila2("fila2-2");
+//        PilhaF.EnqueueFila2("fila2-3");
 
         System.out.println(PilhaF);
 // deletar elementos da pilha 1
@@ -42,6 +47,6 @@ public class TestPilha_com_filas {
 //        PilhaF.EnqueueFila2("fila2-9");
 
 // mostrar o array com elementos
-        System.out.println(PilhaF);
+//        System.out.println(PilhaF);
     }
 }

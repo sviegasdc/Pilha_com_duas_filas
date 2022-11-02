@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Pilha_com_Fila.iml" filepath="$PROJECT_DIR$/Pilha_com_Fila.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pilha_com_duas_filas.iml" filepath="$PROJECT_DIR$/Pilha_com_duas_filas.iml" />
     </modules>
   </component>
 </project>
