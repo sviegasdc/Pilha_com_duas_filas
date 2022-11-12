@@ -1,4 +1,5 @@
 import java.sql.SQLOutput;
+import java.util.Arrays;
 
 public class PilhaFila implements IPilhaFila {
     public int end1;
@@ -19,24 +20,22 @@ public class PilhaFila implements IPilhaFila {
     }
 
     public void EnqueueFila1(Object elemento) {
-        if (end1 + 1 != start2) {
+        if (end1 + 1 == start2) {
+            System.out.println("Fila 1 chegou ao topo, hora de duplicar");
+            duplicaArrayFila1();
+        } else {
             end1++; // indo para próxima posição para depois inserir
             this.PilhaF[end1] = elemento; // agora inserindo
-        } else {
-            System.out.println("Fila 1 chegou ao topo, hora de duplicar");
-            duplicaArray();
         }
     }
 
     public void EnqueueFila2(Object elemento) {
         if (end2 == this.PilhaF.length - 1) {
             System.out.println("Fila 2 chegou ao topo, hora de duplicar");
-            duplicaArray();
+            duplicaArrayFila2();
         }
         this.end2 = this.end2 + 1;
         this.PilhaF[end2] = elemento;
-
-
     }
 
     public Object DequeueFila1() throws emptyQueueException {
@@ -61,7 +60,7 @@ public class PilhaFila implements IPilhaFila {
 
     // duplicando o array quando as filas estiverem cheias
     // QUEBRADO
-    private void duplicaArray() {
+    private void duplicaArrayFila2() {
         int novoSize = this.PilhaF.length * 2;
         Object novoArray[] = new Object[novoSize];
         // copiar elementos da fila 1
@@ -76,11 +75,26 @@ public class PilhaFila implements IPilhaFila {
             }
             this.PilhaF = novoArray;
         }
-        // quando a fila 1 chegar ao topo (aumentar o espaço entre as filas ao invés de aumentar o espaço depois da fila2)
-        else {
-            System.out.println("Não foi possível duplicar esse array");
-        }
     }
+
+    private void duplicaArrayFila1() {
+        int novoSize = this.PilhaF.length * 2;
+        Object novoArray[] = new Object[novoSize];
+            // quando a fila 1 chegar ao topo (aumentar o espaço entre as filas ao invés de aumentar o espaço depois da fila2)
+            // pegar os elementos da fila1 e adicionar no novo array
+            for(int i=0; i<=this.end1; i++){
+                novoArray[i] = this.PilhaF[i];
+            }
+            novoSize--;
+            // pegando os elementos da fila2 e colocando eles no final do novo array
+            for(int i=this.end2; i>=this.end1 + 1; i--){
+                novoArray[novoSize--] = this.PilhaF[i];
+                System.out.println(Arrays.toString(PilhaF));
+            }
+            this.PilhaF = novoArray;
+            this.end2 =  this.PilhaF.length - 1;
+        }
+
         // escrever o array com os elementos das pilhas
         @Override
         public String toString () {
